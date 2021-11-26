@@ -1,13 +1,13 @@
-const mail = document.getElementById("email");
+const mails = document.getElementById("email");
 const pass = document.getElementById("password");
-const btn = document.getElementById("register");
+const btn = document.getElementById("login");
 
-const url = "http://localhost:3000/register";
+const url = "http://localhost:3000/login";
 
 btn.addEventListener("click",(e)=>{
     e.preventDefault()
     let data = {
-        email: mail.value,
+        email: mails.value,
         password: pass.value
     }
     Post(data);
@@ -28,11 +28,13 @@ async function Post(datas) {
             body: JSON.stringify(datas) 
         });
         const data = await response.json();
+        localStorage.setItem("token", data.token);
+        console.log(response)
         if(response.status!==200){
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: `Something went wrong! ${data.title}`,
+                text: `Something went wrong! ${data}`,
             })
         }
         else{
@@ -41,11 +43,10 @@ async function Post(datas) {
                 `${data.title}`,
                 'success'
             ).then(function() {
-                window.location = "../html/index.html";
+                window.location = "../html/furnitures.html";
             });
         }
     } catch (error) {
         console.log(error)
     }
 }
-

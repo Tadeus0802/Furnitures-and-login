@@ -13,36 +13,41 @@
             background: linear-gradient(to right, red, blue);
         }
 
-        .container #login-row #login-columns #login-box {
+        h1{
+            margin-bottom: 5%;
+        }
+
+        .container #login-box {
             margin-top: 35%;
             margin-left: 5%;
-            max-width: 600px;
-            height: 300px;
+            padding: 0;
+            height: 300%;
             box-shadow: 5px 5px 5px black;
             border-radius: 5px;
             overflow: hidden;
             text-overflow: ellipsis;
         }
 
-        #login {
-            margin-top: 7%;
+        #register {
             border: 2px #0d6efd solid;
             border-radius: 5px;
             padding: 0.9%;
             width: 5rem;
         }
 
-        #user{
+        #send{
+            display:block;
+        }
+
+        #send #password #user #email{
             padding: 0.9%;
         }
 
-        #password{
-            padding: 0.9%;
+        input{
+            margin-bottom: 3%;
         }
-
-        #botones{
-            padding: 4%;
-        }
+       
+        
     </style>
 </head>
 <body>
@@ -53,14 +58,16 @@
               <div id="root">       
                 <h1 id="form-text" class="text-center display-4">Sign Up</h1>
                 <form id="send">
-                    <input type="text" id="user" placeholder="Usuario" required>
-                    <input type="password" id="password" placeholder="Contraseña" required>
-                    <input type="submit" class="btn-primary" id="login" value="Sign Up" onclick="redirect()">    
+                    <input type="text" id="email" placeholder="Email" required><br>
+                    <input type="password" id="password" placeholder="Contraseña" required><br>
+                    <input type="submit" class="btn-primary" id="register" value="Sign Up">    
                 </form>
               </div>
             </div>
           </div>
         </div>
     </div>
+    <script src="../js/register.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
